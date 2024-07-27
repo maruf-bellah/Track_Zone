@@ -1,15 +1,27 @@
-import useClock from "./component /hooks/useClock";
+import { useState } from "react";
+import LocalClock from "./component /local-clock/LocalClock";
+
+const LOCAL_CLOCK_INT = {
+  title: "My Clock",
+  timezone: "",
+  offset: 0,
+  date: null,
+};
 
 const App = () => {
-  const { clock: local } = useClock();
-  const { clock: pst } = useClock("PST");
+  const [localClock, setLocalClock] = useState({ ...LOCAL_CLOCK_INT });
 
-  console.log("local", local.date);
-  console.log("pst", pst.date);
+  const updateLocalClock = (data) => {
+    setLocalClock({
+      ...localClock,
+      ...data,
+    });
+  };
 
+  console.log(localClock);
   return (
     <div>
-      <h1>Hello Maruf Bella</h1>
+      <LocalClock clock={localClock} updateClock={updateLocalClock} />
     </div>
   );
 };
