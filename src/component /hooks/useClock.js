@@ -17,7 +17,7 @@ const useClock = (timezone, offset = 0) => {
 
   useEffect(() => {
     let d = new Date();
-    console.log(d);
+    // console.log(d);
 
     const lo = d.getTimezoneOffset();
     d = addMinutes(d, lo);
