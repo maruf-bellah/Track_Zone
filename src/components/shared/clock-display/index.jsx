@@ -15,6 +15,9 @@ const ClockDisplay = ({ date, title, timezone, offset }) => {
       </p>
     </div>
   );
+  
 };
 
 export default ClockDisplay;
+
+
